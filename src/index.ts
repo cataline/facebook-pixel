@@ -1,1 +1,1 @@
-export { default } from '@/FacebookPixel'
+export { facebookPixel } from '@/FacebookPixel'

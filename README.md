@@ -15,9 +15,9 @@ npm install @cataline/facebook-pixel
 Set up Facebook Pixel at the start of your application and use it effortlessly throughout.
 
 ```ts
-import FacebookPixel from '@cataline/facebook-pixel'
+import { facebookPixel } from '@cataline/facebook-pixel'
 
-FacebookPixel.init({
+facebookPixel.init({
   pixelIds: ['PIXEL_ID', 'PIXEL_ID'],
   autoPageView: true, // optional, defaults to true
 })
@@ -27,10 +27,10 @@ FacebookPixel.init({
 
 ```ts
 // Track a Lead event
-FacebookPixel.track('Lead')
+facebookPixel.track('Lead')
 
 // Track a Purchase event with additional parameters
-FacebookPixel.track('Purchase', { value: 100, currency: 'USD' })
+facebookPixel.track('Purchase', { value: 100, currency: 'USD' })
 ```
 
 See all standard events in the [Facebook docs](https://en-gb.facebook.com/business/help/402791146561655?id=1205376682832142)
@@ -39,7 +39,7 @@ See all standard events in the [Facebook docs](https://en-gb.facebook.com/busine
 
 ```ts
 // Track a custom event
-FacebookPixel.trackCustom('ProductView', { productId: '123' })
+facebookPixel.trackCustom('ProductView', { productId: '123' })
 ```
 
 Learn more about custom events in the [Facebook docs](https://developers.facebook.com/docs/meta-pixel/implementation/conversion-tracking/?locale=en_US#tracking-custom-events)
@@ -48,13 +48,13 @@ Learn more about custom events in the [Facebook docs](https://developers.faceboo
 
 ```ts
 // Track a Lead event with deduplication
-FacebookPixel.track('Lead', {}, 'EVENT_ID')
+facebookPixel.track('Lead', {}, 'EVENT_ID')
 
 // Track a Purchase event with parameters and deduplication
-FacebookPixel.track('Purchase', { value: 12, currency: 'USD' }, 'EVENT_ID')
+facebookPixel.track('Purchase', { value: 12, currency: 'USD' }, 'EVENT_ID')
 
 // Track a custom event with parameters and deduplication
-FacebookPixel.trackCustom('ProductView', { productId: '123' }, 'EVENT_ID')
+facebookPixel.trackCustom('ProductView', { productId: '123' }, 'EVENT_ID')
 ```
 
 Learn more about event deduplication in the [Facebook docs](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events?locale=en_US)

@@ -1,7 +1,7 @@
-import FacebookPixel from '@/index'
+import { facebookPixel } from '@/index'
 
-FacebookPixel.init({
+facebookPixel.init({
   pixelIds: ['PIXEL_ID_1', 'PIXEL_ID_2'],
 })
 
-FacebookPixel.track('Lead')
+facebookPixel.track('Lead')

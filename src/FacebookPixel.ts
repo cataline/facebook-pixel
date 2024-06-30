@@ -35,4 +35,4 @@ class FacebookPixel {
   }
 }
 
-export default new FacebookPixel()
+export const facebookPixel = new FacebookPixel()
