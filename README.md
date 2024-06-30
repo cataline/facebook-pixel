@@ -1,6 +1,6 @@
 # Facebook Pixel
 
-> JavaScript library for [Facebook Pixel](https://developers.facebook.com/docs/meta-pixel/get-started/) tracking
+> JavaScript library for [Facebook's Pixel](https://developers.facebook.com/docs/meta-pixel/get-started/) tracking
 
 This library allows you to configure Facebook Pixel tracking in your **client-side** application, with full **TypeScript** support.
 
