@@ -17,7 +17,7 @@ export default defineConfig({
   },
   plugins: [
     dts({
-      exclude: 'src/dev.ts',
+      exclude: 'dev',
     }),
   ],
 })
