@@ -1,24 +1,12 @@
+import { standardEventNames } from '@/utils'
+
 export interface FacebookPixelOptions {
   pixelIds: string[]
   autoPageView?: boolean
 }
 
-export type FacebookPixelEvent =
-  | 'AddPaymentInfo'
-  | 'AddToCart'
-  | 'AddToWishlist'
-  | 'CompleteRegistration'
-  | 'Contact'
-  | 'CustomizeProduct'
-  | 'Donate'
-  | 'FindLocation'
-  | 'InitiateCheckout'
-  | 'Lead'
-  | 'PageView'
-  | 'Purchase'
-  | 'Schedule'
-  | 'Search'
-  | 'StartTrial'
-  | 'SubmitApplication'
-  | 'Subscribe'
-  | 'ViewContent'
+export interface trackEventOptions {
+  name: (typeof standardEventNames)[number] | (string & {})
+  id?: string
+  params?: Record<string, any>
+}

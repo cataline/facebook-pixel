@@ -1,5 +1,6 @@
 import { setupFbq } from '@/setupFbq'
-import { FacebookPixelOptions, FacebookPixelEvent } from '@/types'
+import { FacebookPixelOptions, trackEventOptions } from '@/types'
+import { standardEventNames } from '@/utils'
 
 class FacebookPixel {
   private pixelIds: string[] = []
@@ -18,19 +19,15 @@ class FacebookPixel {
     }
   }
 
-  track(event: FacebookPixelEvent, params?: Record<string, any>, eventID?: string) {
-    const eventOptions = eventID ? { eventID } : undefined
+  trackEvent({ name, params, id }: trackEventOptions) {
+    const isStandardEvent = (standardEventNames as readonly string[]).includes(name)
 
     this.pixelIds.forEach((pixelId) => {
-      window.fbq('trackSingle', pixelId, event, params, eventOptions)
-    })
-  }
-
-  trackCustom(event: string, params?: Record<string, any>, eventID?: string) {
-    const eventOptions = eventID ? { eventID } : undefined
-
-    this.pixelIds.forEach((pixelId) => {
-      window.fbq('trackSingleCustom', pixelId, event, params, eventOptions)
+      if (isStandardEvent) {
+        window.fbq('trackSingle', pixelId, name, params, { eventID: id })
+      } else {
+        window.fbq('trackSingleCustom', pixelId, name, params, { eventID: id })
+      }
     })
   }
 }

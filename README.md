@@ -2,7 +2,7 @@
 
 > JavaScript library for [Facebook's Pixel](https://developers.facebook.com/docs/meta-pixel/get-started/) tracking
 
-This library allows you to configure Facebook Pixel tracking in your **client-side** application, with full **TypeScript** support.
+This library enables Facebook Pixel tracking in your **client-side** application with full **TypeScript** support.
 
 ## Install
 
@@ -12,7 +12,7 @@ npm install @cataline/facebook-pixel
 
 ## Usage
 
-Set up Facebook Pixel at the start of your application and use it effortlessly throughout.
+Configure Facebook Pixel at the start of your application and enjoy seamless tracking.
 
 ```ts
 import { facebookPixel } from '@cataline/facebook-pixel'
@@ -25,39 +25,50 @@ facebookPixel.init({
 
 ## Track Standard Events
 
+Easily track standard events such as leads and purchases.
+
 ```ts
 // Track a Lead event
-facebookPixel.track('Lead')
+facebookPixel.trackEvent({ name: 'Lead' })
 
 // Track a Purchase event with additional parameters
-facebookPixel.track('Purchase', { value: 100, currency: 'USD' })
+facebookPixel.trackEvent({
+  name: 'Purchase',
+  params: {
+    value: 100,
+    currency: 'USD',
+  },
+})
 ```
 
-See all standard events in the [Facebook docs](https://en-gb.facebook.com/business/help/402791146561655?id=1205376682832142)
+For a complete list of standard events, refer to the [Facebook documentation](https://en-gb.facebook.com/business/help/402791146561655?id=1205376682832142).
 
 ## Track Custom Events
 
+You can also track custom events tailored to your needs.
+
 ```ts
 // Track a custom event
-facebookPixel.trackCustom('ProductView', { productId: '123' })
+facebookPixel.trackEventCustom({
+  name: 'ProductView',
+  params: {
+    productId: '123',
+  },
+})
 ```
 
-Learn more about custom events in the [Facebook docs](https://developers.facebook.com/docs/meta-pixel/implementation/conversion-tracking/?locale=en_US#tracking-custom-events)
+Explore custom event tracking in the [Facebook documentation](https://developers.facebook.com/docs/meta-pixel/implementation/conversion-tracking/?locale=en_US#tracking-custom-events).
 
 ## Event Deduplication
 
+Avoid duplicate events effortlessly.
+
 ```ts
 // Track a Lead event with deduplication
-facebookPixel.track('Lead', {}, 'EVENT_ID')
-
-// Track a Purchase event with parameters and deduplication
-facebookPixel.track('Purchase', { value: 12, currency: 'USD' }, 'EVENT_ID')
-
-// Track a custom event with parameters and deduplication
-facebookPixel.trackCustom('ProductView', { productId: '123' }, 'EVENT_ID')
+facebookPixel.trackEvent({ name: 'Lead', id: 'unique-id' })
 ```
 
-Learn more about event deduplication in the [Facebook docs](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events?locale=en_US)
+Understand event deduplication better through the [Facebook documentation](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events?locale=en_US).
 
 ## License
 
