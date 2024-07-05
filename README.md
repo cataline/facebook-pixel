@@ -49,7 +49,7 @@ You can also track custom events tailored to your needs.
 
 ```ts
 // Track a custom event
-facebookPixel.trackEventCustom({
+facebookPixel.trackEvent({
   name: 'ProductView',
   params: {
     productId: '123',
