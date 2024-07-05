@@ -65,7 +65,7 @@ Avoid duplicate events effortlessly.
 
 ```ts
 // Track a Lead event with deduplication
-facebookPixel.trackEvent({ name: 'Lead', id: 'unique-id' })
+facebookPixel.trackEvent({ name: 'Lead', id: 'unique-event-id' })
 ```
 
 Understand event deduplication better through the [Facebook documentation](https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events?locale=en_US).
